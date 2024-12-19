@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+<!-- [Previous head content remains the same until style tag] -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
         
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Heebo', sans-serif;
             background: linear-gradient(135deg, #000B18 0%, #001428 50%, #001F3F 100%);
             color: white;
+            scroll-behavior: smooth;
         }
         
         .gradient-text {
@@ -52,79 +50,17 @@
         .card-glow:hover {
             box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
         }
-
-        .logo-container {
-            width: 200px;
-            height: 100px;
-        }
-
-        .contact-card {
-            backdrop-filter: blur(10px);
-            background: rgba(17, 24, 39, 0.8);
-        }
     </style>
 </head>
 <body class="min-h-screen">
     <header class="fixed w-full bg-opacity-90 bg-gray-900 shadow-lg z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="logo-container">
-                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#000B18;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#001428;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#001F3F;stop-opacity:1" />
-                            </linearGradient>
-                            <linearGradient id="successGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <rect x="40" y="20" width="320" height="160" rx="20" fill="url(#bgGradient)"/>
-                        <g opacity="0.15">
-                            <path d="M60 60 H340 M60 90 H340 M60 120 H340" stroke="#2563eb" stroke-width="0.75"/>
-                            <path d="M100 40 V160 M180 40 V160 M260 40 V160" stroke="#2563eb" stroke-width="0.75"/>
-                        </g>
-                        <g filter="url(#glow)">
-                            <path d="M80 120 H160 V90 H240 V60 H320 V20" fill="none" stroke="#2563eb" stroke-width="2" stroke-opacity="0.3"/>
-                            <path d="M80 120 H160 V90 H240 V60 H320 V20" fill="none" stroke="url(#successGradient)" stroke-width="2.5" stroke-linecap="round">
-                                <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="3s" repeatCount="indefinite"/>
-                            </path>
-                        </g>
-                        <g filter="url(#glow)">
-                            <circle cx="160" cy="120" r="4" fill="#3b82f6">
-                                <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="240" cy="90" r="4" fill="#3b82f6">
-                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="320" cy="60" r="4" fill="#3b82f6">
-                                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                        </g>
-                        <g filter="url(#glow)" opacity="0.9">
-                            <path d="M310 30 L320 20 L330 30" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-                        </g>
-                        <text x="200" y="95" font-family="Arial" font-size="32" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="2" filter="url(#glow)">
-                            CHAYA SPRINT
-                        </text>
-                        <text x="200" y="145" font-family="Arial" font-size="14" text-anchor="middle" fill="#60a5fa" letter-spacing="1" filter="url(#glow)">
-                            מריצים את העסק שלך להצלחה
-                        </text>
-                    </svg>
-                </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-blue-400 transition px-4">שירותים</a>
-                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition px-4">אודות</a>
-                    <a href="#contact" class="text-gray-300 hover:text-blue-400 transition px-4">צור קשר</a>
+                    <a href="#services" class="text-gray-300 hover:text-blue-400 transition">שירותים</a>
+                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition">אודות</a>
+                    <a href="#contact" class="text-gray-300 hover:text-blue-400 transition">צור קשר</a>
+                    <a href="#" class="text-gray-300 hover:text-blue-400 transition">EN</a>
                 </div>
             </div>
         </nav>
@@ -140,17 +76,18 @@
                         <span class="gradient-text">לסיפור הצלחה</span>
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-300 mb-12">
-                        אוטומציה עסקית מתקדמת המובילה להחלטות מבוססות נתונים
+                        אוטומציה עסקית מתקדמת והחלטות מבוססות נתונים
                     </p>
                     <div class="flex justify-center gap-6">
                         <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105">
-                            יצירת קשר
+                            קביעת שיחת אפיון
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- [Rest of the sections remain the same] -->
         <section id="services" class="py-20 bg-gray-900 bg-opacity-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-16">השירותים שלנו</h2>
@@ -192,27 +129,29 @@
 
         <section id="contact" class="py-20">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-4xl font-bold text-center mb-8">בואו נעבוד יחד</h2>
-                    <p class="text-gray-400 text-center mb-12">הפכו את העסק שלכם לחכם ויעיל יותר</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="contact-card p-8 rounded-2xl card-glow text-center">
-                            <div class="text-4xl mb-4">📱</div>
-                            <h3 class="text-xl font-bold mb-2">טלפון</h3>
-                            <a href="tel:+972548530150" class="text-blue-400 hover:text-blue-300 transition">054-853-0150</a>
-                        </div>
-                        
-                        <div class="contact-card p-8 rounded-2xl card-glow text-center">
-                            <div class="text-4xl mb-4">📧</div>
-                            <h3 class="text-xl font-bold mb-2">אימייל</h3>
-                            <a href="mailto:chayasprint@gmail.com" class="text-blue-400 hover:text-blue-300 transition">chayasprint@gmail.com</a>
-                        </div>
+                <div class="max-w-2xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-8">בואו נעבוד יחד</h2>
+                    <p class="text-gray-400 mb-12">הפכו את העסק שלכם לחכם ויעיל יותר</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <a href="tel:+972548530150" class="flex items-center justify-center gap-4 bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                            <span class="text-2xl">📱</span>
+                            <span>054-853-0150</span>
+                        </a>
+                        <a href="mailto:chayasprint@gmail.com" class="flex items-center justify-center gap-4 bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                            <span class="text-2xl">📧</span>
+                            <span>chayasprint@gmail.com</span>
+                        </a>
                     </div>
-                    
-                    <div class="mt-12 text-center text-gray-400">
-                        <p>אשמח לשמוע על העסק שלך ולחשוב יחד איך אפשר לקדם אותו</p>
-                    </div>
+                    <form action="mailto:chayasprint@gmail.com" method="POST" enctype="text/plain" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="שם מלא" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500" required>
+                            <input type="email" name="email" placeholder="אימייל" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <textarea name="message" rows="4" placeholder="כיצד נוכל לעזור?" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500" required></textarea>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105">
+                            שליחת הודעה
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -236,4 +175,15 @@
                 opacity: { value: 0.5, random: false },
                 size: { value: 3, random: true },
                 line_linked: { enable: true, distance: 150, color: "#3b82f6", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6,
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
