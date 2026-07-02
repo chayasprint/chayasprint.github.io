@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>חיה ספרינט | אוטומציה עסקית והחלטות מבוססות נתונים</title>
-<meta name="description" content="חיה ספרינט — אוטומציה עסקית, החלטות מבוססות נתונים וייעוץ עסקי לעסקים קטנים ובינוניים. מריצים את העסק שלך להצלחה.">
+<title>חיה ספרינט | בהירות פיננסית, אוטומציה עסקית והחלטות מבוססות נתונים</title>
+<meta name="description" content="חיה ספרינט — בהירות פיננסית לעסקים: אוטומציה עסקית והחלטות מבוססות נתונים. רואים את המספרים ברור, מחליטים נכון, ורצים קדימה.">
+<link rel="canonical" href="https://chayasprint.github.io/chaya-sprint/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://chayasprint.github.io/chaya-sprint/">
 <meta property="og:title" content="חיה ספרינט | מריצים את העסק שלך להצלחה">
-<meta property="og:description" content="אוטומציה עסקית, החלטות מבוססות נתונים וייעוץ עסקי — בהירות מתוך נתונים לעסקים קטנים ובינוניים.">
+<meta property="og:description" content="בהירות פיננסית, אוטומציה עסקית והחלטות מבוססות נתונים — לעסקים שרוצים לראות ברור ולרוץ מהר.">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="חיה ספרינט">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='10' fill='%230A0E1A'/%3E%3Cpath d='M11 29 L18 22 L23 26 L32 15' stroke='%2345E0CE' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M26 15 H32 V21' stroke='%23C9A876' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,13 +28,14 @@
   "@type": "ProfessionalService",
   "name": "חיה ספרינט",
   "alternateName": "Chaya Sprint",
-  "description": "אוטומציה עסקית, החלטות מבוססות נתונים וייעוץ עסקי לעסקים קטנים ובינוניים בישראל.",
+  "url": "https://chayasprint.github.io/chaya-sprint/",
+  "description": "בהירות פיננסית לעסקים: אוטומציה עסקית, החלטות מבוססות נתונים וייעוץ עסקי לעסקים קטנים ובינוניים בישראל.",
   "slogan": "מריצים את העסק שלך להצלחה",
   "founder": { "@type": "Person", "name": "חיה בקרמן" },
   "telephone": "+972-54-853-0150",
   "email": "chayasprint@gmail.com",
   "areaServed": { "@type": "Country", "name": "ישראל" },
-  "knowsAbout": ["אוטומציה עסקית", "החלטות מבוססות נתונים", "ייעוץ עסקי", "ניהול כספים"]
+  "knowsAbout": ["בהירות פיננסית", "אוטומציה עסקית", "החלטות מבוססות נתונים", "ייעוץ עסקי", "ניהול כספים"]
 }
 </script>
 
@@ -104,6 +109,18 @@ body::before{
 
 main, footer{ position: relative; z-index: 1; }
 
+/* ===== פס התקדמות גלילה ===== */
+.scroll-progress{
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(-90deg, var(--accent), var(--gold));
+  transform: scaleX(0);
+  transform-origin: right;
+  z-index: 200;
+  pointer-events: none;
+}
+
 /* ===== טיפוגרפיה ===== */
 h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
 
@@ -153,6 +170,8 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   border-radius: 3px;
   border: 1px solid transparent;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease),
               background-color 0.5s var(--ease), border-color 0.5s var(--ease),
               color 0.5s var(--ease);
@@ -161,6 +180,18 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   background: var(--accent);
   color: #06221E;
 }
+/* ברק חולף על הכפתור הראשי */
+.btn-primary::before{
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 40%;
+  right: -60%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-18deg);
+  transition: right 0.9s var(--ease);
+}
+.btn-primary:hover::before{ right: 130%; }
 .btn-primary:hover{
   transform: translateY(-3px);
   box-shadow: 0 14px 34px -10px var(--accent-dim);
@@ -173,6 +204,63 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-3px);
+}
+
+/* ===== לוגו ===== */
+.logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark{
+  width: 42px;
+  height: 42px;
+  flex: none;
+}
+.logo-text{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  direction: ltr;
+  text-align: left;
+}
+.logo-en{
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.logo-he{
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+/* אנימציית שרטוט הלוגו בטעינה */
+.js .lm-ring{
+  stroke-dasharray: 126;
+  stroke-dashoffset: 126;
+  transition: stroke-dashoffset 1.8s var(--ease) 0.2s;
+}
+.js .lm-path, .js .lm-arrow{
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  transition: stroke-dashoffset 1.4s var(--ease) 0.55s;
+}
+.js.loaded .lm-ring, .js.loaded .lm-path, .js.loaded .lm-arrow{
+  stroke-dashoffset: 0;
+}
+.lm-dot{ animation: dotPulse 3.2s var(--ease) infinite 1.6s; transform-origin: center; transform-box: fill-box; }
+@keyframes dotPulse{
+  0%, 100%{ opacity: 1; transform: scale(1); }
+  50%{ opacity: 0.55; transform: scale(1.5); }
+}
+@media (prefers-reduced-motion: reduce){
+  .js .lm-ring, .js .lm-path, .js .lm-arrow{ stroke-dashoffset: 0; transition: none; }
+  .lm-dot{ animation: none; }
 }
 
 /* ===== ניווט ===== */
@@ -194,17 +282,7 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
-}
-.logo{
-  font-family: var(--font-head);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-.logo em{
-  font-style: normal;
-  color: var(--accent);
+  height: 80px;
 }
 .nav-links{
   display: flex;
@@ -260,7 +338,7 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   flex-direction: column;
   justify-content: center;
   position: relative;
-  padding-top: 76px;
+  padding-top: 80px;
   overflow: hidden;
 }
 #heroCanvas{
@@ -268,8 +346,49 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.55;
+  opacity: 0.6;
 }
+/* הילה חיה איטית ברקע */
+.aurora{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.aurora::before, .aurora::after{
+  content: "";
+  position: absolute;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.13;
+}
+.aurora::before{
+  background: radial-gradient(circle, var(--accent), transparent 65%);
+  top: -18%;
+  left: -12%;
+  animation: auroraA 26s var(--ease) infinite alternate;
+}
+.aurora::after{
+  background: radial-gradient(circle, var(--gold), transparent 65%);
+  bottom: -25%;
+  right: -15%;
+  opacity: 0.09;
+  animation: auroraB 32s var(--ease) infinite alternate;
+}
+@keyframes auroraA{
+  from{ transform: translate(0, 0) scale(1); }
+  to{ transform: translate(9vw, 7vh) scale(1.18); }
+}
+@keyframes auroraB{
+  from{ transform: translate(0, 0) scale(1.1); }
+  to{ transform: translate(-8vw, -6vh) scale(0.95); }
+}
+@media (prefers-reduced-motion: reduce){
+  .aurora::before, .aurora::after{ animation: none; }
+}
+
 .hero-content{
   position: relative;
   z-index: 2;
@@ -302,6 +421,23 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   color: var(--accent);
   font-weight: 700;
 }
+/* חשיפת שורות הכותרת במסכה — עיצוב בינלאומי */
+.line-mask{
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.line-mask .line{ display: block; }
+.js .line-mask .line{
+  transform: translateY(118%);
+  transition: transform 1.15s var(--ease);
+}
+.js .line-mask:nth-child(2) .line{ transition-delay: 0.14s; }
+.js.loaded .line-mask .line{ transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js .line-mask .line{ transform: none; transition: none; }
+}
+
 .hero-sub{
   margin-top: 28px;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
@@ -334,6 +470,39 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   55%{ transform: translateY(8px); opacity: 0.35; }
 }
 
+/* ===== פס נע ===== */
+.marquee{
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 20px;
+  user-select: none;
+}
+.marquee-track{
+  display: flex;
+  width: max-content;
+  animation: marq 38s linear infinite;
+}
+.marquee-half{
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding-inline-end: 56px;
+  white-space: nowrap;
+}
+.marquee-half span{
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+.marquee-half .m-en{ color: var(--text); direction: ltr; }
+.marquee-half .m-sep{ color: var(--gold); font-size: 0.55rem; letter-spacing: 0; }
+@keyframes marq{ to{ transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+}
+
 /* ===== חשיפה בגלילה (מוסתר רק כש-JS פעיל — ללא JS הכול גלוי) ===== */
 .js .reveal{
   opacity: 0;
@@ -350,6 +519,7 @@ h1, h2, h3{ font-family: var(--font-head); font-weight: 500; line-height: 1.2; }
   .js .reveal{ opacity: 1; transform: none; transition: none; }
   .scroll-hint svg{ animation: none; }
   .btn, .card, .contact-link{ transition: none !important; }
+  .btn-primary::before{ display: none; }
 }
 
 /* ===== סקציות ===== */
@@ -366,7 +536,6 @@ section{ padding-block: var(--section-pad); }
 /* ===== פס אמון — מספרים ===== */
 .stats{
   padding-block: clamp(48px, 7vw, 88px);
-  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 .stats-grid{
@@ -403,6 +572,46 @@ section{ padding-block: var(--section-pad); }
   font-size: 0.95rem;
 }
 
+/* ===== מניפסט הבידול ===== */
+.manifesto .big{
+  font-family: var(--font-head);
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 26ch;
+}
+.manifesto .big .hl-a{ color: var(--accent); font-weight: 700; }
+.manifesto .big .hl-g{ color: var(--gold); }
+.manifesto-body{
+  margin-top: 30px;
+  color: var(--muted);
+  max-width: 58ch;
+  font-size: 1.1rem;
+}
+.manifesto-body strong{ color: var(--text); font-weight: 500; }
+.pillars{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.pillar{
+  border-top: 1px solid var(--line-strong);
+  padding-top: 24px;
+}
+.pillar h3{
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.pillar p{
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
 /* ===== שירותים ===== */
 .services-grid{
   display: grid;
@@ -424,6 +633,18 @@ section{ padding-block: var(--section-pad); }
   border-color: rgba(69,224,206,0.3);
   box-shadow: 0 24px 48px -24px rgba(0,0,0,0.55);
 }
+/* ספוטלייט עוקב עכבר */
+.card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(69,224,206,0.09), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.card:hover::after{ opacity: 1; }
 .card-index{
   position: absolute;
   top: 14px;
@@ -546,11 +767,8 @@ section{ padding-block: var(--section-pad); }
 }
 
 /* ===== אודות ===== */
-.about-grid{
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(40px, 6vw, 90px);
-  align-items: center;
+.about-wrap{
+  max-width: 780px;
 }
 .about-text p{
   color: var(--muted);
@@ -561,7 +779,7 @@ section{ padding-block: var(--section-pad); }
   font-weight: 500;
 }
 blockquote{
-  margin: 34px 0;
+  margin: 34px 0 0;
   padding-right: 26px;
   border-right: 2px solid var(--gold);
   font-family: var(--font-head);
@@ -569,34 +787,6 @@ blockquote{
   font-weight: 500;
   line-height: 1.5;
   color: var(--text);
-}
-.portrait{
-  aspect-ratio: 4 / 5;
-  border: 1px solid var(--line-strong);
-  border-radius: 4px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(160deg, rgba(69,224,206,0.05), transparent 45%),
-    var(--bg-raised);
-  overflow: hidden;
-}
-.portrait::before{
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  pointer-events: none;
-}
-.portrait-note{
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.16em;
-  text-align: center;
-  padding: 0 24px;
 }
 
 /* ===== CTA סופי ===== */
@@ -645,7 +835,7 @@ blockquote{
   flex: none;
 }
 .contact-link:hover{ color: var(--accent); }
-.whatsapp-btn{ margin-top: 40px; }
+.cta-btn-row{ margin-top: 40px; }
 
 /* ===== פוטר ===== */
 footer{
@@ -701,6 +891,8 @@ footer{
   .stats-grid{ grid-template-columns: 1fr; gap: 40px; }
   .stat + .stat::before{ display: none; }
 
+  .pillars{ grid-template-columns: 1fr; gap: 32px; }
+
   .services-grid{ grid-template-columns: 1fr; }
 
   .process-track{ grid-template-columns: 1fr; gap: 44px; }
@@ -714,9 +906,6 @@ footer{
 
   .testimonials-grid{ grid-template-columns: 1fr; gap: 40px; }
 
-  .about-grid{ grid-template-columns: 1fr; }
-  .portrait{ max-width: 380px; margin-inline: auto; }
-
   .footer-inner{ flex-direction: column; text-align: center; }
 }
 
@@ -725,15 +914,39 @@ footer{
   .hero-actions .btn{ width: 100%; }
   .container{ width: calc(100% - 40px); }
   .card{ padding: 40px 26px 34px; }
+  .logo-en{ font-size: 0.8rem; letter-spacing: 0.18em; }
 }
 </style>
 </head>
 <body>
 
+<!-- גרדיאנט משותף ללוגו -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="brandGrad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#45E0CE"/>
+      <stop offset="1" stop-color="#C9A876"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- ===== ניווט ===== -->
 <header class="nav" id="navbar">
   <div class="container nav-inner">
-    <a href="#top" class="logo" aria-label="חיה ספרינט — חזרה לראש העמוד">חיה <em>ספרינט</em></a>
+    <a href="#top" class="logo" aria-label="חיה ספרינט — חזרה לראש העמוד">
+      <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle class="lm-ring" cx="22" cy="22" r="20" stroke="url(#brandGrad)" stroke-width="1.4" opacity="0.85"/>
+        <path class="lm-path" d="M11 29 L18 22 L23 26 L32 15" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="lm-arrow" d="M26 15 H32 V21" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="lm-dot" cx="11" cy="29" r="2" fill="#45E0CE"/>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-en">CHAYA SPRINT</span>
+        <span class="logo-he">חיה ספרינט</span>
+      </span>
+    </a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="פתיחת תפריט ניווט">
       <span></span><span></span><span></span>
@@ -742,9 +955,9 @@ footer{
     <nav aria-label="ניווט ראשי">
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">שירותים</a></li>
+        <li><a href="#why">הבידול</a></li>
         <li><a href="#process">תהליך</a></li>
         <li><a href="#about">אודות</a></li>
-        <li><a href="#contact">צור קשר</a></li>
         <li><a href="#contact" class="btn btn-primary nav-cta">בואו נדבר</a></li>
       </ul>
     </nav>
@@ -755,16 +968,17 @@ footer{
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="פתיח">
+    <div class="aurora" aria-hidden="true"></div>
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="container hero-content">
-      <p class="hero-kicker reveal">אוטומציה · נתונים · ייעוץ</p>
-      <h1 class="reveal" style="--d:0.08s">
-        מריצים את העסק שלך<br>
-        <span class="accent-line">להצלחה.</span>
+      <p class="hero-kicker reveal">בהירות פיננסית · החלטות מבוססות נתונים</p>
+      <h1>
+        <span class="line-mask"><span class="line">מריצים את העסק שלך</span></span>
+        <span class="line-mask"><span class="line accent-line">להצלחה.</span></span>
       </h1>
       <p class="hero-sub reveal" style="--d:0.16s">
-        פחות עבודה ידנית, יותר בהירות. תהליכים אוטומטיים והחלטות
-        מבוססות נתונים — כדי שהעסק ירוץ, ואת/ה תנהל/י.
+        אוטומציה היא רק הכלי. המטרה: לראות את המספרים של העסק
+        ברור — ולקבל כל החלטה מתוך ידיעה, לא מתוך ניחוש.
       </p>
       <div class="hero-actions reveal" style="--d:0.24s">
         <a href="#contact" class="btn btn-primary">בואו נדבר</a>
@@ -779,12 +993,30 @@ footer{
     </a>
   </section>
 
+  <!-- ===== פס נע ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-half">
+        <span>בהירות פיננסית</span><span class="m-sep">◆</span>
+        <span>החלטות מבוססות נתונים</span><span class="m-sep">◆</span>
+        <span>אוטומציה שמשרתת את השורה התחתונה</span><span class="m-sep">◆</span>
+        <span class="m-en">CHAYA SPRINT</span><span class="m-sep">◆</span>
+      </div>
+      <div class="marquee-half">
+        <span>בהירות פיננסית</span><span class="m-sep">◆</span>
+        <span>החלטות מבוססות נתונים</span><span class="m-sep">◆</span>
+        <span>אוטומציה שמשרתת את השורה התחתונה</span><span class="m-sep">◆</span>
+        <span class="m-en">CHAYA SPRINT</span><span class="m-sep">◆</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== פס אמון ===== -->
   <!-- TODO: להחליף במספרים אמיתיים -->
   <section class="stats" id="stats" aria-label="נתוני ניסיון">
     <div class="container stats-grid">
       <div class="stat reveal">
-        <div class="stat-num"><span class="counter" data-target="15">15</span><span class="plus">+</span></div>
+        <div class="stat-num"><span class="counter" data-target="10">10</span><span class="plus">+</span></div>
         <p class="stat-label">שנות ניסיון בכספים וניהול</p>
       </div>
       <div class="stat reveal" style="--d:0.12s">
@@ -798,13 +1030,48 @@ footer{
     </div>
   </section>
 
+  <!-- ===== מניפסט הבידול ===== -->
+  <section class="manifesto" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">למה חיה ספרינט</p>
+        <p class="big" id="why-title">
+          כל אחד יכול לחבר אוטומציות.<br>
+          <span class="hl-a">השאלה מה המספרים אומרים לך</span> אחרי שהן רצות.
+        </p>
+      </div>
+      <p class="manifesto-body reveal" style="--d:0.12s">
+        חיה ספרינט לא מגיעה מעולם הכלים — אלא <strong>מעולם הכספים</strong>.
+        לכן כל תהליך נבנה סביב שאלה אחת: איך זה משרת את השורה התחתונה שלך.
+        התוצאה היא לא רק עסק שרץ מהר יותר — אלא עסק שרואה ברור.
+      </p>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3>רקע פיננסי עמוק</h3>
+          <p>שנים בעולם הכספים — לא רק בהגדרת תוכנות. מבינים את הכסף לפני שנוגעים בכלי.</p>
+        </div>
+        <div class="pillar reveal" style="--d:0.12s">
+          <h3>נתונים לפני כלים</h3>
+          <p>קודם מגדירים מה מודדים ולמה. רק אחר כך בוחרים מה למכן.</p>
+        </div>
+        <div class="pillar reveal" style="--d:0.24s">
+          <h3>בהירות כתוצאה</h3>
+          <p>בסוף התהליך יש תשובה ברורה: לאן הולך הכסף, מה מרוויח, ומה הצעד הבא.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-line">
+
   <!-- ===== שירותים ===== -->
   <section id="services" aria-labelledby="services-title">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">שירותים</p>
         <h2 class="section-title" id="services-title">מה העסק שלך מרוויח</h2>
-        <p class="section-sub">שלושה מסלולים, מטרה אחת: עסק שרץ בסדר, בבהירות וביעילות.</p>
+        <p class="section-sub">שלושה מסלולים, מטרה אחת: עסק שרואה ברור — ורץ מהר.</p>
       </div>
 
       <div class="services-grid">
@@ -815,7 +1082,7 @@ footer{
             <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M38.1 9.9l-4.2 4.2M14.1 33.9l-4.2 4.2"/>
           </svg>
           <h3>אוטומציה עסקית</h3>
-          <p>המשימות החוזרות עוברות למערכת — והזמן שלך חוזר אליך. פחות טעויות אנוש, יותר שקט תפעולי.</p>
+          <p>תהליכים שרצים לבד — ומדווחים לך בדרך. פחות עבודה ידנית, פחות טעויות, אפס ניחושים.</p>
         </article>
 
         <article class="card reveal" style="--d:0.12s">
@@ -825,17 +1092,18 @@ footer{
             <path d="M12 42V26M22 42V16M32 42V22M42 42V10"/>
             <circle cx="42" cy="10" r="2.5"/>
           </svg>
-          <h3>החלטות מבוססות נתונים</h3>
-          <p>המספרים של העסק הופכים לתמונה ברורה. כל החלטה נשענת על עובדות — לא על תחושת בטן.</p>
+          <h3>בהירות פיננסית</h3>
+          <p>כל המספרים של העסק בתמונה אחת ברורה: מה נכנס, מה יוצא — ומה באמת נשאר בשורה התחתונה.</p>
         </article>
 
         <article class="card reveal" style="--d:0.24s">
           <span class="card-index" aria-hidden="true">03</span>
           <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M24 6l4.9 9.9L40 17.5l-8 7.8 1.9 11L24 31.2l-9.9 5.1 1.9-11-8-7.8 11.1-1.6z"/>
+            <circle cx="24" cy="24" r="19"/>
+            <path d="M30.5 17.5l-4 9-9 4 4-9z"/>
           </svg>
           <h3>ייעוץ עסקי</h3>
-          <p>מבט חיצוני חד, עם רקע עמוק בכספים. מזהים איפה הכסף והזמן מתבזבזים — ומתקנים.</p>
+          <p>מבט חיצוני חד עם רקע עמוק בכספים. כל המלצה מגובה בנתונים — לא בתחושת בטן.</p>
         </article>
       </div>
     </div>
@@ -856,7 +1124,7 @@ footer{
         <div class="step reveal">
           <div class="step-dot" aria-hidden="true">א</div>
           <h3>אבחון</h3>
-          <p>מבינים את העסק לעומק: תהליכים, כאבים, ומה באמת גוזל זמן.</p>
+          <p>מבינים את העסק לעומק: תהליכים, כאבים, ומה באמת גוזל זמן וכסף.</p>
         </div>
         <div class="step reveal" style="--d:0.1s">
           <div class="step-dot" aria-hidden="true">ב</div>
@@ -938,7 +1206,7 @@ footer{
 
   <!-- ===== אודות ===== -->
   <section id="about" aria-labelledby="about-title">
-    <div class="container about-grid">
+    <div class="container about-wrap">
       <div class="about-text reveal">
         <p class="eyebrow">אודות</p>
         <h2 class="section-title" id="about-title">חיה בקרמן</h2>
@@ -949,17 +1217,12 @@ footer{
         </p>
         <p>
           לכן הקמתי את חיה ספרינט: לתת לבעלי עסקים קטנים ובינוניים את מה
-          שיש לחברות הגדולות — תהליכים שרצים לבד, נתונים שמדברים ברור,
-          והחלטות שנשענות על עובדות.
+          שיש לחברות הגדולות — בהירות פיננסית מלאה, תהליכים שרצים לבד,
+          והחלטות שנשענות על נתונים אמיתיים.
         </p>
         <blockquote>
           "בהירות מתוך נתונים — זו לא סיסמה. זו הדרך היחידה לנהל עסק בשקט."
         </blockquote>
-      </div>
-
-      <!-- TODO: להחליף בתמונה אמיתית של חיה -->
-      <div class="portrait reveal" style="--d:0.15s" role="img" aria-label="מקום שמור לתמונה של חיה בקרמן">
-        <p class="portrait-note">מקום שמור לתמונה</p>
       </div>
     </div>
   </section>
@@ -989,13 +1252,8 @@ footer{
         </a>
       </div>
 
-      <div class="reveal" style="--d:0.24s">
-        <a href="https://wa.me/972548530150" target="_blank" rel="noopener" class="btn btn-primary whatsapp-btn" aria-label="פתיחת שיחת וואטסאפ עם חיה">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.13-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.66.3-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1 2.56.13.17 1.75 2.67 4.23 3.74.6.26 1.05.41 1.4.52.6.2 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.16-.48-.3z"/>
-          </svg>
-          שיחה בוואטסאפ
-        </a>
+      <div class="cta-btn-row reveal" style="--d:0.24s">
+        <a href="tel:+972548530150" class="btn btn-primary" aria-label="חיוג מהיר לחיה">התקשרו עכשיו</a>
       </div>
     </div>
   </section>
@@ -1005,9 +1263,21 @@ footer{
 <!-- ===== פוטר ===== -->
 <footer>
   <div class="container footer-inner">
-    <a href="#top" class="logo" aria-label="חיה ספרינט — חזרה לראש העמוד">חיה <em>ספרינט</em></a>
+    <a href="#top" class="logo" aria-label="חיה ספרינט — חזרה לראש העמוד">
+      <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true" style="width:34px;height:34px">
+        <circle cx="22" cy="22" r="20" stroke="url(#brandGrad)" stroke-width="1.4" opacity="0.85"/>
+        <path d="M11 29 L18 22 L23 26 L32 15" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 15 H32 V21" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="11" cy="29" r="2" fill="#45E0CE"/>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-en">CHAYA SPRINT</span>
+        <span class="logo-he">חיה ספרינט</span>
+      </span>
+    </a>
     <nav class="footer-nav" aria-label="ניווט תחתון">
       <a href="#services">שירותים</a>
+      <a href="#why">הבידול</a>
       <a href="#process">תהליך</a>
       <a href="#about">אודות</a>
       <a href="#contact">צור קשר</a>
@@ -1021,10 +1291,21 @@ footer{
   "use strict";
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* --- מצב ניווט בגלילה --- */
+  /* --- מחלקת loaded לאנימציות פתיחה (לוגו + כותרת) --- */
+  window.addEventListener("load", function(){
+    document.documentElement.classList.add("loaded");
+  });
+  setTimeout(function(){
+    document.documentElement.classList.add("loaded");
+  }, 800);
+
+  /* --- מצב ניווט + פס התקדמות בגלילה --- */
   var navbar = document.getElementById("navbar");
+  var progress = document.getElementById("scrollProgress");
   function onScroll(){
     navbar.classList.toggle("scrolled", window.scrollY > 24);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? window.scrollY / max : 0) + ")";
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -1082,7 +1363,7 @@ footer{
     requestAnimationFrame(frame);
   }
   var counters = document.querySelectorAll(".counter");
-  if ("IntersectionObserver" in window){
+  if ("IntersectionObserver" in window && !reducedMotion){
     var countObs = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if (entry.isIntersecting){
@@ -1092,14 +1373,24 @@ footer{
       });
     }, { threshold: 0.5 });
     counters.forEach(function(el){ countObs.observe(el); });
-  } else {
-    counters.forEach(animateCounter);
   }
 
-  /* --- קנבס Hero: רשת נקודות מרצדת, קלה מאוד --- */
+  /* --- ספוטלייט עוקב עכבר על כרטיסים --- */
+  if (window.matchMedia("(pointer: fine)").matches && !reducedMotion){
+    document.querySelectorAll(".card").forEach(function(card){
+      card.addEventListener("pointermove", function(e){
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
+  /* --- קנבס Hero: רשת נתונים חיה + אינטראקציית עכבר --- */
   var canvas = document.getElementById("heroCanvas");
   var ctx = canvas.getContext("2d");
-  var dots = [], W = 0, H = 0, rafId = null, running = false;
+  var dots = [], pairs = [], W = 0, H = 0, rafId = null, running = false;
+  var mouse = null;
   var SPACING = 64;
 
   function build(){
@@ -1110,15 +1401,39 @@ footer{
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     dots = [];
-    for (var x = SPACING / 2; x < W; x += SPACING){
-      for (var y = SPACING / 2; y < H; y += SPACING){
-        dots.push({ x: x, y: y, phase: (x * 7 + y * 13) % 100 / 100 * Math.PI * 2 });
+    pairs = [];
+    var cols = 0, rows = 0;
+    for (var x = SPACING / 2; x < W; x += SPACING) cols++;
+    for (var y = SPACING / 2; y < H; y += SPACING) rows++;
+    for (var c = 0; c < cols; c++){
+      for (var r = 0; r < rows; r++){
+        var px = SPACING / 2 + c * SPACING;
+        var py = SPACING / 2 + r * SPACING;
+        dots.push({ x: px, y: py, phase: (px * 7 + py * 13) % 100 / 100 * Math.PI * 2 });
+        var idx = c * rows + r;
+        if (c < cols - 1) pairs.push([idx, idx + rows]);   // שכן אופקי
+        if (r < rows - 1) pairs.push([idx, idx + 1]);      // שכן אנכי
       }
     }
   }
 
+  function boost(x, y){
+    if (!mouse) return 0;
+    var dx = x - mouse.x, dy = y - mouse.y;
+    var d = Math.sqrt(dx * dx + dy * dy);
+    return d < 170 ? (1 - d / 170) : 0;
+  }
+
   function drawStatic(){
     ctx.clearRect(0, 0, W, H);
+    ctx.strokeStyle = "rgba(69,224,206,0.04)";
+    ctx.lineWidth = 1;
+    pairs.forEach(function(p){
+      ctx.beginPath();
+      ctx.moveTo(dots[p[0]].x, dots[p[0]].y);
+      ctx.lineTo(dots[p[1]].x, dots[p[1]].y);
+      ctx.stroke();
+    });
     ctx.fillStyle = "rgba(69,224,206,0.18)";
     dots.forEach(function(d){
       ctx.beginPath();
@@ -1130,12 +1445,25 @@ footer{
   function draw(ts){
     ctx.clearRect(0, 0, W, H);
     var t = ts / 1000;
-    for (var i = 0; i < dots.length; i++){
-      var d = dots[i];
-      var a = 0.06 + 0.14 * (0.5 + 0.5 * Math.sin(t * 0.7 + d.phase));
-      ctx.fillStyle = "rgba(69,224,206," + a.toFixed(3) + ")";
+    ctx.lineWidth = 1;
+    var i, d, a;
+    for (i = 0; i < pairs.length; i++){
+      var d1 = dots[pairs[i][0]], d2 = dots[pairs[i][1]];
+      var mx = (d1.x + d2.x) / 2, my = (d1.y + d2.y) / 2;
+      a = 0.012 + 0.02 * (0.5 + 0.5 * Math.sin(t * 0.55 + d1.phase)) + boost(mx, my) * 0.11;
+      ctx.strokeStyle = "rgba(69,224,206," + a.toFixed(3) + ")";
       ctx.beginPath();
-      ctx.arc(d.x, d.y, 1.1, 0, Math.PI * 2);
+      ctx.moveTo(d1.x, d1.y);
+      ctx.lineTo(d2.x, d2.y);
+      ctx.stroke();
+    }
+    for (i = 0; i < dots.length; i++){
+      d = dots[i];
+      var b = boost(d.x, d.y);
+      a = 0.06 + 0.14 * (0.5 + 0.5 * Math.sin(t * 0.7 + d.phase)) + b * 0.5;
+      ctx.fillStyle = "rgba(69,224,206," + Math.min(a, 0.8).toFixed(3) + ")";
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, 1.1 + b * 1.6, 0, Math.PI * 2);
       ctx.fill();
     }
     rafId = requestAnimationFrame(draw);
@@ -1150,6 +1478,13 @@ footer{
     running = false;
     if (rafId) cancelAnimationFrame(rafId);
   }
+
+  var hero = document.querySelector(".hero");
+  hero.addEventListener("pointermove", function(e){
+    var r = canvas.getBoundingClientRect();
+    mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
+  });
+  hero.addEventListener("pointerleave", function(){ mouse = null; });
 
   build();
   if (reducedMotion){
