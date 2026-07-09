@@ -1164,6 +1164,209 @@ footer{
   .card{ padding: 40px 26px 34px; }
   .logo-en{ font-size: 0.8rem; letter-spacing: 0.18em; }
 }
+
+/* ===================================================================== */
+/* ===== שכבת אנימציה מורחבת (יולי 2026) ============================== */
+/* ===================================================================== */
+
+/* --- פס האמון: כותרות בגרדיאנט זולג + הרמה בהובר + קו שנמתח --- */
+.stats .stat-num{
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: sheen 7s linear infinite;
+}
+@keyframes sheen{ to{ background-position: 200% center; } }
+
+.stats .stat{
+  border-radius: 14px;
+  padding: 18px 14px;
+  transition: transform 0.55s var(--ease), background-color 0.55s var(--ease);
+}
+.stats .stat:hover{
+  transform: translateY(-6px);
+  background: linear-gradient(180deg, rgba(69,224,206,0.05), transparent 72%);
+}
+.stats .stat-label{ position: relative; display: inline-block; padding-bottom: 10px; }
+.stats .stat-label::after{
+  content: "";
+  position: absolute;
+  right: 50%; bottom: 0;
+  width: 0; height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(-90deg, var(--accent), var(--gold));
+  transform: translateX(50%);
+  transition: width 0.55s var(--ease);
+}
+.stats .stat:hover .stat-label::after{ width: 46px; }
+
+/* --- כותרות סקציה: קו מתחת שנמתח כשהסקציה מתגלה --- */
+.section-title{ position: relative; }
+.section-title::after{
+  content: "";
+  position: absolute;
+  right: 0; bottom: -12px;
+  width: 0; height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(-90deg, var(--accent), var(--gold));
+  transition: width 1s var(--ease) 0.25s;
+}
+.reveal.in .section-title::after,
+.section-head.in .section-title::after{ width: 66px; }
+.cta-final .section-title::after{ right: 50%; transform: translateX(50%); }
+
+/* --- המלצות: הרמה, זוהר, וסימן ציטוט חי --- */
+.testimonial{
+  border-radius: 12px;
+  padding: 30px 22px 22px;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease),
+              border-top-color 0.5s var(--ease), background-color 0.5s var(--ease);
+}
+.testimonial:hover{
+  transform: translateY(-7px);
+  border-top-color: var(--accent);
+  background: linear-gradient(180deg, rgba(69,224,206,0.05), transparent 62%);
+  box-shadow: 0 26px 50px -30px rgba(0,0,0,0.6);
+}
+.testimonial-mark{
+  display: inline-block;
+  animation: markFloat 5.5s var(--ease) infinite alternate;
+  transition: transform 0.5s var(--ease), color 0.5s var(--ease);
+}
+.testimonial:hover .testimonial-mark{
+  transform: scale(1.28) translateY(-3px);
+  color: var(--accent);
+}
+@keyframes markFloat{ from{ transform: translateY(0); } to{ transform: translateY(-7px); } }
+
+/* --- עמודי הבידול: הרמה + קו זהב שגדל --- */
+.pillar{ position: relative; transition: transform 0.5s var(--ease); }
+.pillar:hover{ transform: translateY(-5px); }
+.pillar::after{
+  content: "";
+  position: absolute;
+  top: -1px; right: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.6s var(--ease);
+}
+.pillar:hover::after{ width: 64px; }
+
+/* --- אייקוני שירות: פעימה עדינה בהובר --- */
+.card:hover .card-icon{ animation: iconPulse 1.5s var(--ease) infinite; }
+@keyframes iconPulse{
+  0%, 100%{ transform: scale(1); }
+  50%{ transform: scale(1.14); }
+}
+
+/* --- שלבי התהליך: הנקודה פועמת בהובר --- */
+.step-dot{ transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), color 0.5s var(--ease); }
+.step:hover .step-dot{
+  transform: scale(1.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- כפתור ראשי: הילה נושמת עדינה --- */
+.btn-primary{ animation: btnGlow 3.6s var(--ease) infinite; }
+@keyframes btnGlow{
+  0%, 100%{ box-shadow: 0 0 0 0 rgba(69,224,206,0); }
+  50%{ box-shadow: 0 0 22px -4px var(--accent-dim); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .stats .stat-num{ animation: none; }
+  .testimonial-mark{ animation: none; }
+  .card:hover .card-icon{ animation: none; }
+  .btn-primary{ animation: none; }
+  .section-title::after{ transition: none; }
+}
+
+/* ===================================================================== */
+/* ===== שכבה בינלאומית v2: הקלדה, מסגרות חיות, מגנטיות, פרלקסה ===== */
+/* ===================================================================== */
+
+/* --- מסגרת קונית מסתובבת על המלצות (בהובר) --- */
+@property --ang{ syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.testimonial{ position: relative; }
+.testimonial::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--ang),
+              rgba(69,224,206,0.55), rgba(201,168,118,0.45) 30%,
+              transparent 55%, rgba(69,224,206,0.55));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.testimonial:hover::before{ opacity: 1; animation: spinBorder 3.2s linear infinite; }
+@keyframes spinBorder{ to{ --ang: 360deg; } }
+
+/* --- שורת הקלדה ב-Hero: "מערכת אחת ל..." --- */
+.hero-types{
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  min-height: 1.7em;
+}
+.hero-types .typed{ color: var(--accent); font-weight: 600; }
+.type-caret{
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-inline-start: 4px;
+  vertical-align: -0.18em;
+  background: var(--accent);
+  animation: caretBlink 1.05s steps(1) infinite;
+}
+@keyframes caretBlink{ 50%{ opacity: 0; } }
+
+/* --- פס נע: נעצר בהובר כדי שיהיה קריא --- */
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+
+/* --- חזרה לראש העמוד עם טבעת התקדמות --- */
+.to-top{
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(14,20,37,0.85);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.4s var(--ease);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.to-top.show{ opacity: 1; pointer-events: auto; transform: none; }
+.to-top:hover{ color: var(--gold); transform: translateY(-3px); }
+.to-top .ring{ position: absolute; inset: -1px; transform: rotate(-90deg); }
+.to-top .ring circle{ transition: stroke-dashoffset 0.2s linear; }
+
+@media (prefers-reduced-motion: reduce){
+  .type-caret{ animation: none; }
+  .testimonial:hover::before{ animation: none; opacity: 0.6; }
+  .marquee-track{ animation: none; }
+}
 </style>
 </head>
 <body>
@@ -1230,6 +1433,7 @@ footer{
             אוטומציה היא רק הכלי. המטרה: לראות את המספרים של העסק
             ברור — ולקבל כל החלטה מתוך ידיעה, לא מתוך ניחוש.
           </p>
+          <p class="hero-types reveal" style="--d:0.2s">מערכת אחת ל<span class="typed" id="typedWord">קליניקות</span><span class="type-caret" aria-hidden="true"></span></p>
           <div class="hero-actions reveal" style="--d:0.24s">
             <a href="#contact" class="btn btn-primary">בואו נדבר</a>
             <a href="#process" class="btn btn-ghost">איך זה עובד</a>
@@ -1296,24 +1500,20 @@ footer{
     </div>
   </div>
 
-  <!-- ===== פס אמון ===== -->
-  <!-- TODO: להחליף במספרים אמיתיים -->
-  <section class="stats" id="stats" aria-label="נתוני ניסיון">
+  <!-- ===== פס אמון (איכותי, ללא מספרים מומצאים) ===== -->
+  <section class="stats" id="stats" aria-label="הבטחת הערך">
     <div class="container stats-grid">
       <div class="stat reveal">
-        <div class="stat-num"><span class="counter" data-target="10">10</span><span class="plus">+</span></div>
-        <p class="stat-label">שנות ניסיון בכספים וניהול</p>
-        <div class="sparkbars" aria-hidden="true"><i style="--h:30%;--i:0"></i><i style="--h:45%;--i:1"></i><i style="--h:55%;--i:2"></i><i style="--h:70%;--i:3"></i><i style="--h:85%;--i:4"></i><i style="--h:100%;--i:5"></i></div>
+        <div class="stat-num" style="font-size:clamp(1.6rem,3.4vw,2.3rem)">מקצה לקצה</div>
+        <p class="stat-label">לקוחות, תשלומים ותהליכים במערכת אחת</p>
       </div>
       <div class="stat reveal" style="--d:0.12s">
-        <div class="stat-num"><span class="counter" data-target="120">120</span><span class="plus">+</span></div>
-        <p class="stat-label">תהליכים אוטומטיים שהוטמעו</p>
-        <div class="sparkbars" aria-hidden="true"><i style="--h:38%;--i:0"></i><i style="--h:32%;--i:1"></i><i style="--h:58%;--i:2"></i><i style="--h:66%;--i:3"></i><i style="--h:82%;--i:4"></i><i style="--h:100%;--i:5"></i></div>
+        <div class="stat-num" style="font-size:clamp(1.6rem,3.4vw,2.3rem)">שקט תפעולי</div>
+        <p class="stat-label">פחות עבודה ידנית, פחות דברים שנופלים בין הכיסאות</p>
       </div>
       <div class="stat reveal" style="--d:0.24s">
-        <div class="stat-num"><span class="counter" data-target="3000">3,000</span><span class="plus">+</span></div>
-        <p class="stat-label">שעות עבודה שנחסכו ללקוחות</p>
-        <div class="sparkbars" aria-hidden="true"><i style="--h:26%;--i:0"></i><i style="--h:48%;--i:1"></i><i style="--h:44%;--i:2"></i><i style="--h:72%;--i:3"></i><i style="--h:88%;--i:4"></i><i style="--h:100%;--i:5"></i></div>
+        <div class="stat-num" style="font-size:clamp(1.6rem,3.4vw,2.3rem)">בנוי סביב הכסף</div>
+        <p class="stat-label">מערכת שמבינה מה רווחי, לא רק מה קרה</p>
       </div>
     </div>
   </section>
@@ -1440,7 +1640,7 @@ footer{
   <hr class="hr-line">
 
   <!-- ===== המלצות ===== -->
-  <!-- TODO: להחליף בהמלצות אמיתיות של לקוחות (שם, עסק וציטוט) -->
+  <!-- המלצות אמיתיות מלקוחות (יולי 2026). שיוך אנונימי עד לאישור שם מלא מכל לקוחה. -->
   <section id="testimonials" aria-labelledby="testimonials-title">
     <div class="container">
       <div class="section-head reveal">
@@ -1452,13 +1652,14 @@ footer{
         <figure class="testimonial reveal">
           <span class="testimonial-mark" aria-hidden="true">”</span>
           <p>
-            תוך חודשיים, הדוחות שלקחו לי יום שלם מתעדכנים לבד.
-            פתאום יש לי זמן לעבוד על העסק — לא רק בתוכו.
+            המעבר מטבלאות גוגל שיטס מסורבלות למערכת אחת על Airtable, עם
+            האוטומציות שחיה בנתה, חוסך לנו למעלה מ-<span class="count-inline" data-target="70">70</span>% משעות העבודה.
+            מבינה מאוד בפרויקטים גדולים, מאפיינת ומקימה. ממליצה מאוד.
           </p>
           <footer>
             <cite>
-              <span class="t-name">שם הלקוח/ה</span>
-              <span class="t-role">בעלים, תחום העסק — placeholder</span>
+              <span class="t-name">יהודית</span>
+              <span class="t-role">מנהלת עמותה</span>
             </cite>
           </footer>
         </figure>
@@ -1466,13 +1667,14 @@ footer{
         <figure class="testimonial reveal" style="--d:0.12s">
           <span class="testimonial-mark" aria-hidden="true">”</span>
           <p>
-            חיה לקחה בלגן של אקסלים והפכה אותו לתמונה אחת ברורה.
-            היום אני מקבל החלטות על בסיס מספרים, לא ניחושים.
+            עד לפני שנה הכל התנהל בדפים, אקסלים והמון עבודה ידנית.
+            היום הכל מסודר וברור, העבודה זורמת, ויש לי שקט נפשי
+            שהמערכת מנהלת עבורי את כל מה שצריך בדיוק.
           </p>
           <footer>
             <cite>
-              <span class="t-name">שם הלקוח/ה</span>
-              <span class="t-role">מנכ"ל, תחום העסק — placeholder</span>
+              <span class="t-name">גולדי</span>
+              <span class="t-role">מנהלת חוגים</span>
             </cite>
           </footer>
         </figure>
@@ -1480,13 +1682,14 @@ footer{
         <figure class="testimonial reveal" style="--d:0.24s">
           <span class="testimonial-mark" aria-hidden="true">”</span>
           <p>
-            הליווי לא נגמר בהטמעה. כל שאלה נענית, כל תהליך מדויק.
-            ההשקעה החזירה את עצמה כבר ברבעון הראשון.
+            פשוט נהיה לנו שקט ורוגע בכל הניהול של הקבוצות. המערכת ממש
+            מצילה אותי. אני מעריכה את התוצר, ואת השינויים תוך כדי בדיוק
+            לפי הצורך.
           </p>
           <footer>
             <cite>
-              <span class="t-name">שם הלקוח/ה</span>
-              <span class="t-role">שותפה מנהלת, תחום העסק — placeholder</span>
+              <span class="t-name">אילה</span>
+              <span class="t-role">מנהלת קליניקה</span>
             </cite>
           </footer>
         </figure>
@@ -1576,6 +1779,16 @@ footer{
     <p>© 2026 חיה ספרינט · כל הזכויות שמורות</p>
   </div>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="חזרה לראש העמוד">
+  <svg class="ring" viewBox="0 0 54 54" aria-hidden="true">
+    <circle cx="27" cy="27" r="24" fill="none" stroke="rgba(69,224,206,0.15)" stroke-width="2"/>
+    <circle id="ringBar" cx="27" cy="27" r="24" fill="none" stroke="#45E0CE" stroke-width="2" stroke-linecap="round" stroke-dasharray="151" stroke-dashoffset="151"/>
+  </svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
 
 <script>
 (function(){
@@ -1827,6 +2040,134 @@ footer{
       if (reducedMotion) drawStatic();
     }, 150);
   });
+})();
+</script>
+
+<script>
+/* ===== שכבה בינלאומית v2: הקלדה, ספירה, מגנטיות, הטיה, פרלקסה, חזרה למעלה ===== */
+(function(){
+  "use strict";
+  var rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(pointer: fine)").matches;
+
+  /* --- מילים מתחלפות בהקלדה ב-Hero --- */
+  var words = ["קליניקות", "חוגים וסטודיו", "עמותות", "עסקי שירות"];
+  var typedEl = document.getElementById("typedWord");
+  if (typedEl){
+    if (rm){
+      typedEl.textContent = words[0];
+    } else {
+      var wi = 0, ci = words[0].length, del = false;
+      (function tick(){
+        var w = words[wi];
+        if (!del){
+          ci++;
+          typedEl.textContent = w.slice(0, ci);
+          if (ci >= w.length){ del = true; setTimeout(tick, 2100); return; }
+          setTimeout(tick, 95);
+        } else {
+          ci--;
+          typedEl.textContent = w.slice(0, ci);
+          if (ci <= 0){ del = false; wi = (wi + 1) % words.length; setTimeout(tick, 420); return; }
+          setTimeout(tick, 42);
+        }
+      })();
+    }
+  }
+
+  /* --- ספירה חיה של ה-70% בתוך ההמלצה --- */
+  var inline = document.querySelector(".count-inline");
+  if (inline){
+    var target = parseInt(inline.dataset.target, 10);
+    if (rm || !("IntersectionObserver" in window)){
+      inline.textContent = target;
+    } else {
+      new IntersectionObserver(function(entries, obs){
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+        var start = null, dur = 1500;
+        function f(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var e = 1 - Math.pow(1 - p, 3);
+          inline.textContent = Math.round(target * e);
+          if (p < 1) requestAnimationFrame(f);
+        }
+        requestAnimationFrame(f);
+      }, { threshold: 0.6 }).observe(inline);
+    }
+  }
+
+  /* --- כפתורים מגנטיים --- */
+  if (fine && !rm){
+    document.querySelectorAll(".btn").forEach(function(btn){
+      btn.addEventListener("pointermove", function(e){
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+        var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        btn.style.transition = "transform 0.15s ease";
+        btn.style.transform = "translate(" + (dx * 5).toFixed(1) + "px," + (dy * 4).toFixed(1) + "px)";
+      });
+      btn.addEventListener("pointerleave", function(){
+        btn.style.transition = "transform 0.6s var(--ease)";
+        btn.style.transform = "";
+      });
+    });
+  }
+
+  /* --- הטיה תלת-ממדית: המלצות + דשבורד ה-Hero --- */
+  if (fine && !rm){
+    document.querySelectorAll(".testimonial, .dash-card").forEach(function(el){
+      el.addEventListener("pointerenter", function(){ el.style.animation = "none"; });
+      el.addEventListener("pointermove", function(e){
+        var r = el.getBoundingClientRect();
+        var rx = -((e.clientY - r.top - r.height / 2) / (r.height / 2)) * 4;
+        var ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 4;
+        el.style.transition = "transform 0.18s ease";
+        el.style.transform = "perspective(900px) translateY(-6px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+      });
+      el.addEventListener("pointerleave", function(){
+        el.style.transition = "transform 0.7s var(--ease)";
+        el.style.transform = "";
+        el.style.animation = "";
+      });
+    });
+  }
+
+  /* --- פרלקסה עדינה ב-Hero בגלילה --- */
+  var heroCopy = document.querySelector(".hero-copy");
+  var heroVis = document.querySelector(".hero-visual");
+  if (!rm && heroCopy){
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var y = window.scrollY;
+        if (y > window.innerHeight * 1.2) return;
+        heroCopy.style.transform = "translateY(" + (y * 0.12).toFixed(1) + "px)";
+        heroCopy.style.opacity = Math.max(1 - y / (window.innerHeight * 0.9), 0);
+        if (heroVis) heroVis.style.transform = "translateY(" + (y * 0.05).toFixed(1) + "px)";
+      });
+    }, { passive: true });
+  }
+
+  /* --- חזרה לראש העמוד + טבעת התקדמות --- */
+  var toTop = document.getElementById("toTop");
+  var ringBar = document.getElementById("ringBar");
+  if (toTop){
+    var CIRC = 151;
+    window.addEventListener("scroll", function(){
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? window.scrollY / max : 0;
+      toTop.classList.toggle("show", window.scrollY > 560);
+      if (ringBar) ringBar.style.strokeDashoffset = String(CIRC * (1 - p));
+    }, { passive: true });
+    toTop.addEventListener("click", function(){
+      window.scrollTo({ top: 0, behavior: rm ? "auto" : "smooth" });
+    });
+  }
 })();
 </script>
 </body>
