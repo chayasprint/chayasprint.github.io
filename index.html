@@ -1675,6 +1675,72 @@ footer{
 @media (prefers-reduced-motion: reduce){
   .contact-form:focus-within::before{ animation: none; opacity: 0.5; }
 }
+/* ===================================================================== */
+/* ===== דשבורד רווחיות לדוגמה (אוקטובר 2026) ========================== */
+/* ===================================================================== */
+#dashboard{ --pos:#22A595; --neg:#DB6450; --panel:#0F1524; }
+.dash{ background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:22px; box-shadow:0 30px 80px rgba(0,0,0,0.35); }
+.dash-top{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:18px; }
+.dash-biz{ font-weight:600; color:var(--text); }
+.dash-demo{ font-size:12px; color:var(--gold); border:1px solid rgba(201,168,118,0.4); border-radius:20px; padding:1px 10px; margin-inline-start:8px; }
+.dash-months{ display:flex; gap:6px; background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:12px; padding:4px; }
+.dash-months button{ font:inherit; font-size:14px; color:var(--muted); background:none; border:0; border-radius:8px; padding:6px 14px; cursor:pointer; }
+.dash-months button.on{ background:var(--accent); color:#0A0E1A; font-weight:600; }
+.dash-months button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.dash-kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px; }
+.kpi{ background:rgba(255,255,255,0.025); border:1px solid var(--line); border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:2px; }
+.kpi-main{ border-color:rgba(69,224,206,0.45); }
+.kpi-l{ font-size:13px; color:var(--muted); }
+.kpi-v{ unicode-bidi:isolate; direction:ltr; text-align:right; font-size:26px; font-weight:700; color:var(--text); font-variant-numeric:tabular-nums; }
+.kpi-d{ font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
+.kpi-d b{ font-weight:600; color:var(--text); }
+.dash-grid{ display:grid; grid-template-columns:1fr 1.15fr; gap:14px; margin-bottom:14px; }
+.dash-panel{ background:rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+.dash-panel h3{ font-family:inherit; font-size:15px; font-weight:600; color:var(--text); margin:0 0 14px; }
+.dash-panel h3 small{ font-weight:400; color:var(--muted); font-size:12px; margin-inline-start:6px; }
+.svc-row{ display:grid; grid-template-columns:118px 1fr 58px; align-items:center; gap:10px; padding:7px 0; position:relative; }
+.svc-name{ font-size:14px; color:var(--text); }
+.svc-track{ position:relative; height:16px; }
+.svc-zero{ position:absolute; top:-4px; bottom:-4px; width:1px; background:rgba(232,236,244,0.25); }
+.svc-bar{ position:absolute; top:0; height:16px; transition:width .6s cubic-bezier(.2,.8,.2,1), right .6s cubic-bezier(.2,.8,.2,1); }
+.svc-bar.pos{ background:var(--pos); border-radius:4px 0 0 4px; }
+.svc-bar.neg{ background:var(--neg); border-radius:0 4px 4px 0; }
+.svc-val{ font-size:14px; color:var(--text); font-variant-numeric:tabular-nums; text-align:left; direction:ltr; }
+.svc-row:hover{ background:rgba(255,255,255,0.03); border-radius:8px; }
+.svc-tag{ font-size:11px; color:var(--neg); border:1px solid rgba(219,100,80,0.5); border-radius:10px; padding:0 6px; margin-inline-start:6px; }
+.trend-wrap{ position:relative; direction:ltr; }
+#trend{ width:100%; height:auto; display:block; overflow:visible; }
+#trend .grid{ stroke:rgba(232,236,244,0.07); stroke-width:1; }
+#trend .axis{ fill:var(--muted); font-size:12px; font-family:Heebo,sans-serif; }
+#trend .ln{ fill:none; stroke:var(--accent); stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+#trend .ar{ fill:url(#trendFill); }
+#trend .pt{ fill:var(--panel); stroke:var(--accent); stroke-width:2; }
+#trend .pt.sel{ fill:var(--accent); }
+#trend .cross{ stroke:rgba(232,236,244,0.3); stroke-width:1; stroke-dasharray:3 3; }
+#trend .hit{ fill:transparent; cursor:crosshair; }
+#trend .lbl{ fill:var(--text); font-size:12px; font-family:Heebo,sans-serif; font-weight:600; }
+.dash-tip{ position:absolute; pointer-events:none; background:#1A2236; border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:13px; color:var(--text); white-space:nowrap; transform:translate(-50%,-115%); direction:rtl; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+.dash-table{ margin-top:8px; font-size:13px; color:var(--muted); }
+.dash-table summary{ cursor:pointer; }
+.dash-table table{ width:100%; border-collapse:collapse; margin-top:6px; }
+.dash-table td,.dash-table th{ border-bottom:1px solid var(--line); padding:4px 6px; text-align:right; color:var(--text); font-variant-numeric:tabular-nums; }
+.dash-leaks ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.dash-leaks li{ display:flex; gap:10px; align-items:flex-start; background:rgba(219,100,80,0.06); border:1px solid rgba(219,100,80,0.22); border-radius:12px; padding:10px 12px; font-size:14px; color:var(--text); }
+.leak-ic{ flex:none; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-weight:700; font-size:13px; background:var(--neg); color:#0A0E1A; }
+.leak-amt{ display:block; color:var(--muted); font-size:13px; font-variant-numeric:tabular-nums; }
+.dash-cta{ text-align:center; margin-top:22px; color:var(--muted); }
+.dash-cta strong{ color:var(--accent); }
+@media (max-width:860px){
+  .dash-kpis{ grid-template-columns:repeat(2,1fr); }
+  .dash-grid{ grid-template-columns:1fr; }
+  .dash-leaks ul{ grid-template-columns:1fr; }
+}
+@media (max-width:420px){
+  .dash{ padding:14px; }
+  .kpi-v{ font-size:21px; }
+  .svc-row{ grid-template-columns:92px 1fr 50px; }
+  .svc-name{ font-size:13px; }
+}
 </style>
 </head>
 <body>
@@ -1715,6 +1781,7 @@ footer{
     <nav aria-label="ניווט ראשי">
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">שירותים</a></li>
+        <li><a href="#dashboard">דשבורד</a></li>
         <li><a href="#why">הבידול</a></li>
         <li><a href="#process">תהליך</a></li>
         <li><a href="#about">אודות</a></li>
@@ -1907,6 +1974,62 @@ footer{
           <p>תהליכים שרצים לבד, פחות טעויות, ואף הכנסה לא נשכחת. ו-AI שמנתח את הנתונים ואומר מה הצעד הבא.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <hr class="hr-line">
+
+  <!-- ===== דשבורד רווחיות לדוגמה ===== -->
+  <section id="dashboard" aria-labelledby="dash-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">ככה זה נראה</p>
+        <h2 class="section-title" id="dash-title">הדשבורד שהבעלים רואה כל בוקר</h2>
+        <p class="section-sub">דוגמה חיה עם נתונים מומצאים של מרכז קורסים. לחצו על חודש, עברו עם העכבר על הגרפים.</p>
+      </div>
+
+      <div class="dash reveal" style="--d:0.1s">
+        <div class="dash-top">
+          <div class="dash-biz">מרכז קורסים לדוגמה <span class="dash-demo">נתוני דמו</span></div>
+          <div class="dash-months" role="group" aria-label="בחירת חודש">
+            <button type="button" data-m="0">אוגוסט</button>
+            <button type="button" data-m="1">ספטמבר</button>
+            <button type="button" data-m="2" class="on" aria-pressed="true">אוקטובר</button>
+          </div>
+        </div>
+
+        <div class="dash-kpis">
+          <div class="kpi"><span class="kpi-l">הכנסות</span><span class="kpi-v" id="kRev"></span><span class="kpi-d" id="kRevD"></span></div>
+          <div class="kpi"><span class="kpi-l">הוצאות</span><span class="kpi-v" id="kExp"></span><span class="kpi-d" id="kExpD"></span></div>
+          <div class="kpi kpi-main"><span class="kpi-l">רווח נקי</span><span class="kpi-v" id="kPro"></span><span class="kpi-d" id="kProD"></span></div>
+          <div class="kpi"><span class="kpi-l">שולי רווח</span><span class="kpi-v" id="kMar"></span><span class="kpi-d" id="kMarD"></span></div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-panel">
+            <h3>רווח גולמי לפי שירות <small>אלפי ₪</small></h3>
+            <div class="svc" id="svcBars"></div>
+          </div>
+          <div class="dash-panel">
+            <h3>רווח נקי, חצי שנה אחרונה <small>אלפי ₪</small></h3>
+            <div class="trend-wrap">
+              <svg id="trend" viewBox="0 0 520 210" role="img" aria-label="רווח נקי לפי חודש"></svg>
+              <div class="dash-tip" id="trendTip" hidden></div>
+            </div>
+            <details class="dash-table">
+              <summary>הצגה כטבלה</summary>
+              <table id="trendTable"></table>
+            </details>
+          </div>
+        </div>
+
+        <div class="dash-panel dash-leaks">
+          <h3>איפה הכסף זולג החודש</h3>
+          <ul id="leaks"></ul>
+        </div>
+      </div>
+
+      <p class="dash-cta reveal">כל המספרים האלה כבר קיימים אצלכם: בסליקה, בהנהלת החשבונות וב-CRM. <strong>אני מחברת אותם למסך אחד.</strong></p>
     </div>
   </section>
 
@@ -2185,6 +2308,7 @@ footer{
     </a>
     <nav class="footer-nav" aria-label="ניווט תחתון">
       <a href="#services">שירותים</a>
+      <a href="#dashboard">דשבורד</a>
       <a href="#why">הבידול</a>
       <a href="#process">תהליך</a>
       <a href="#toolbox">ארגז הכלים</a>
@@ -2614,6 +2738,107 @@ footer{
       window.scrollTo({ top: 0, behavior: rm ? "auto" : "smooth" });
     });
   }
+})();
+/* ===== דשבורד רווחיות לדוגמה ===== */
+(function(){
+  var root = document.getElementById("dashboard");
+  if (!root) return;
+  var MONTHS = ["מאי","יוני","יולי","אוג׳","ספט׳","אוק׳"];
+  var REV = [142,138,151,129,160,168];
+  var EXP = [121,124,128,122,131,134];
+  var SEL = [
+    { svc:[14.2,9.8,4.1,-4.6], leaks:[["9 חשבוניות פתוחות מעל 30 יום","14,200 ₪ שלא נגבו"],["31 לידים בלי מענה מעל 48 שעות","כ-6 נרשמים שהלכו למתחרים"],["שיעורים פרטיים מפסידים","4,600 ₪ הפסד החודש"],["6 הוראות קבע שנכשלו","2,940 ₪ שלא חודשו"]] },
+    { svc:[16.0,11.2,5.4,-3.5], leaks:[["8 חשבוניות פתוחות מעל 30 יום","12,800 ₪ שלא נגבו"],["26 לידים בלי מענה מעל 48 שעות","כ-5 נרשמים שהלכו למתחרים"],["שיעורים פרטיים מפסידים","3,500 ₪ הפסד החודש"],["5 הוראות קבע שנכשלו","2,450 ₪ שלא חודשו"]] },
+    { svc:[18.4,12.1,6.3,-2.8], leaks:[["7 חשבוניות פתוחות מעל 30 יום","11,400 ₪ שלא נגבו"],["23 לידים בלי מענה מעל 48 שעות","כ-4 נרשמים שהלכו למתחרים"],["שיעורים פרטיים מפסידים","2,800 ₪ הפסד החודש"],["4 הוראות קבע שנכשלו","1,960 ₪ שלא חודשו"]] }
+  ];
+  var SVC = ["קורסים מקוונים","חוגים פרונטליים","סדנאות","שיעורים פרטיים"];
+  var cur = 2;
+  function fmtK(v){ return "₪" + v.toLocaleString("he-IL") + "K"; }
+  function delta(now, prev, invert, unit){
+    var d = now - prev, good = invert ? d < 0 : d > 0;
+    var arrow = d > 0 ? "▲" : (d < 0 ? "▼" : "■");
+    var txt = (d > 0 ? "+" : "") + (unit === "%" ? d.toFixed(1) + "%" : d.toFixed(0) + "K");
+    return arrow + " <b dir=\"ltr\">" + txt + "</b> " + (good ? "לטובה" : "לרעה") + " מהחודש הקודם";
+  }
+  function el(id){ return document.getElementById(id); }
+
+  // --- גרף מגמה ---
+  var svg = el("trend"), tip = el("trendTip");
+  var W = 520, H = 210, L = 34, R = 14, T = 22, B = 30;
+  var PRO = REV.map(function(r,i){ return r - EXP[i]; });
+  var maxY = 40, step = (W - L - R) / (PRO.length - 1);
+  function x(i){ return L + i * step; }
+  function y(v){ return T + (H - T - B) * (1 - v / maxY); }
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs){ var n = document.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; }
+  var defs = mk("defs", {}); var g = mk("linearGradient", {id:"trendFill", x1:0, y1:0, x2:0, y2:1});
+  g.appendChild(mk("stop", {offset:"0%", "stop-color":"#45E0CE", "stop-opacity":"0.22"}));
+  g.appendChild(mk("stop", {offset:"100%", "stop-color":"#45E0CE", "stop-opacity":"0"}));
+  defs.appendChild(g); svg.appendChild(defs);
+  [0,10,20,30,40].forEach(function(v){
+    svg.appendChild(mk("line", {x1:L, x2:W-R, y1:y(v), y2:y(v), "class":"grid"}));
+    var t = mk("text", {x:L-8, y:y(v)+4, "text-anchor":"end", "class":"axis"}); t.textContent = v; svg.appendChild(t);
+  });
+  MONTHS.forEach(function(m,i){ var t = mk("text", {x:x(i), y:H-8, "text-anchor":"middle", "class":"axis"}); t.textContent = m; svg.appendChild(t); });
+  var d = PRO.map(function(v,i){ return (i ? "L" : "M") + x(i) + " " + y(v); }).join(" ");
+  svg.appendChild(mk("path", {d: d + " L" + x(PRO.length-1) + " " + y(0) + " L" + x(0) + " " + y(0) + " Z", "class":"ar"}));
+  svg.appendChild(mk("path", {d:d, "class":"ln"}));
+  var cross = mk("line", {y1:T, y2:y(0), "class":"cross", visibility:"hidden"}); svg.appendChild(cross);
+  var pts = PRO.map(function(v,i){ var c = mk("circle", {cx:x(i), cy:y(v), r:4.5, "class":"pt"}); svg.appendChild(c); return c; });
+  var lbl = mk("text", {"class":"lbl", "text-anchor":"middle"}); svg.appendChild(lbl);
+  PRO.forEach(function(v,i){
+    var h = mk("rect", {x:x(i)-step/2, y:T, width:step, height:H-T-B, "class":"hit"});
+    h.addEventListener("mouseenter", function(){
+      cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility","visible");
+      tip.hidden = false;
+      tip.innerHTML = MONTHS[i] + ": רווח <b>" + fmtK(v) + "</b> · הכנסות " + fmtK(REV[i]);
+      var box = svg.getBoundingClientRect(), sx = box.width / W;
+      var tx = Math.min(Math.max(x(i) * sx, 95), box.width - 95);
+      tip.style.left = tx + "px"; tip.style.top = (y(v) * sx) + "px";
+    });
+    h.addEventListener("mouseleave", function(){ cross.setAttribute("visibility","hidden"); tip.hidden = true; });
+    svg.appendChild(h);
+  });
+  el("trendTable").innerHTML = "<tr><th>חודש</th><th>הכנסות</th><th>הוצאות</th><th>רווח</th></tr>" +
+    MONTHS.map(function(m,i){ return "<tr><td>"+m+"</td><td>"+fmtK(REV[i])+"</td><td>"+fmtK(EXP[i])+"</td><td>"+fmtK(PRO[i])+"</td></tr>"; }).join("");
+
+  // --- ציור לפי חודש נבחר ---
+  var SVC_MAX_POS = 20, SVC_MAX_NEG = 6, ZERO = SVC_MAX_NEG / (SVC_MAX_POS + SVC_MAX_NEG) * 100;
+  var bars = el("svcBars");
+  SVC.forEach(function(name){
+    bars.insertAdjacentHTML("beforeend",
+      '<div class="svc-row"><span class="svc-name">'+name+'</span><span class="svc-track"><span class="svc-zero" style="right:'+ZERO+'%"></span><span class="svc-bar"></span></span><span class="svc-val"></span></div>');
+  });
+  function render(){
+    var mi = cur + 3, s = SEL[cur];
+    var rev = REV[mi], exp = EXP[mi], pro = rev - exp, mar = pro / rev * 100;
+    var pRev = REV[mi-1], pExp = EXP[mi-1], pPro = pRev - pExp, pMar = pPro / pRev * 100;
+    el("kRev").textContent = fmtK(rev); el("kRevD").innerHTML = delta(rev, pRev);
+    el("kExp").textContent = fmtK(exp); el("kExpD").innerHTML = delta(exp, pExp, true);
+    el("kPro").textContent = fmtK(pro); el("kProD").innerHTML = delta(pro, pPro);
+    el("kMar").textContent = mar.toFixed(1) + "%"; el("kMarD").innerHTML = delta(mar, pMar, false, "%");
+    var rows = bars.querySelectorAll(".svc-row");
+    s.svc.forEach(function(v, i){
+      var bar = rows[i].querySelector(".svc-bar"), val = rows[i].querySelector(".svc-val"), nm = rows[i].querySelector(".svc-name");
+      var span = 100 - ZERO;
+      if (v >= 0){ bar.className = "svc-bar pos"; bar.style.right = ZERO + "%"; bar.style.width = (v / SVC_MAX_POS * span) + "%"; }
+      else { bar.className = "svc-bar neg"; bar.style.width = (-v / SVC_MAX_NEG * ZERO) + "%"; bar.style.right = (ZERO + v / SVC_MAX_NEG * ZERO) + "%"; }
+      val.textContent = (v > 0 ? "+" : "") + v.toFixed(1);
+      nm.innerHTML = SVC[i] + (v < 0 ? '<span class="svc-tag">הפסד</span>' : "");
+      rows[i].title = SVC[i] + ": " + (v < 0 ? "הפסד " : "רווח ") + Math.abs(v).toFixed(1) + " אלף ₪";
+    });
+    pts.forEach(function(p, i){ p.setAttribute("class", "pt" + (i === mi ? " sel" : "")); });
+    lbl.setAttribute("x", x(mi)); lbl.setAttribute("y", y(PRO[mi]) - 12); lbl.textContent = fmtK(PRO[mi]);
+    el("leaks").innerHTML = s.leaks.map(function(l){ return '<li><span class="leak-ic" aria-hidden="true">!</span><span>'+l[0]+'<span class="leak-amt">'+l[1]+'</span></span></li>'; }).join("");
+  }
+  root.querySelectorAll(".dash-months button").forEach(function(b){
+    b.addEventListener("click", function(){
+      root.querySelectorAll(".dash-months button").forEach(function(o){ o.classList.remove("on"); o.removeAttribute("aria-pressed"); });
+      b.classList.add("on"); b.setAttribute("aria-pressed","true");
+      cur = +b.getAttribute("data-m"); render();
+    });
+  });
+  render();
 })();
 </script>
 </body>
